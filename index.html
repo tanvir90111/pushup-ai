@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>Academic Intelligence — Course Analysis</title>
+<style>
+:root{--bg:#f5f7fb;--surface:#fff;--ink:#172033;--muted:#7c879a;--line:#e7ebf2;--navy:#101827;--blue:#5578f6;--blue-soft:#edf1ff;--purple:#8868d9;--purple-soft:#f2edff;--green:#219b77;--green-soft:#e7f7f1;--amber:#c68b2d;--amber-soft:#fff5df;--shadow:0 8px 28px rgba(31,45,77,.045);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-size:14px}button,input,select{font:inherit}button{cursor:pointer}.app-shell{min-height:100vh}.sidebar{width:248px;background:var(--navy);color:#e9edf6;position:fixed;inset:0 auto 0 0;display:flex;flex-direction:column;padding:25px 15px 15px;z-index:20}.brand{display:flex;align-items:center;gap:11px;padding:0 10px 32px;text-decoration:none;color:inherit}.brand-mark{height:38px;width:38px;border-radius:12px;background:linear-gradient(145deg,#8ca1ff,#536ff1);display:grid;place-items:center;color:white;font-size:13px;font-weight:800;letter-spacing:-1px;box-shadow:0 5px 15px #526ff144}.brand-copy{display:flex;flex-direction:column;gap:3px}.brand-copy strong{font-size:15px;letter-spacing:-.3px}.brand-copy small{font-size:9px;letter-spacing:2px;color:#8c98ad;font-weight:700}.workspace-label,.section-kicker,.eyebrow{font-size:10px;letter-spacing:1.7px;font-weight:800}.workspace-label{color:#68758b;padding:0 12px 12px}.main-nav{display:grid;gap:5px}.nav-item{border:0;background:transparent;color:#9da8bb;display:flex;align-items:center;gap:13px;text-align:left;padding:12px;border-radius:9px;font-size:13px;transition:background .15s,color .15s}.nav-item:hover{background:#ffffff0b;color:#fff}.nav-item.active{background:#26324a;color:#fff;box-shadow:inset 3px 0 #8094ff}.nav-icon{width:19px;text-align:center;font-size:18px;color:#9ba8c4}.nav-item.active .nav-icon{color:#9badff}.soon{font-size:9px;color:#9ca8c2;background:#ffffff0c;border:1px solid #ffffff13;padding:3px 5px;border-radius:5px;margin-left:auto}.sidebar-bottom{margin-top:auto}.storage-card{margin:0 4px 16px;padding:15px 13px;border-radius:12px;background:#1a2539;border:1px solid #29364b}.storage-icon{width:28px;height:28px;display:grid;place-items:center;background:#2d3a56;border-radius:8px;color:#a9b8ff;margin-bottom:12px;font-size:20px}.storage-card strong{font-size:12px}.storage-card p{font-size:11px;line-height:1.6;color:#8f9bb0;margin:6px 0 12px}.demo-label{font-size:10px;color:#9ba8bd;display:flex;align-items:center;gap:6px}.demo-label i,.status-dot,.chat-status{height:6px;width:6px;border-radius:50%;background:#43c59a;display:inline-block}.user-row{border-top:1px solid #293448;padding:15px 7px 3px;display:flex;align-items:center;gap:10px}.avatar{width:31px;height:31px;border-radius:10px;display:grid;place-items:center;background:#dce4ff;color:#4d63b8;font-weight:800;font-size:10px;border:0}.user-row strong{display:block;font-size:11px}.user-row small{display:block;font-size:10px;color:#8290a6;margin-top:3px}.more{margin-left:auto;color:#8491a8;letter-spacing:2px}.main-area{margin-left:248px;min-height:100vh;display:flex;flex-direction:column}.topbar{height:67px;border-bottom:1px solid var(--line);background:#ffffffd9;display:flex;align-items:center;justify-content:space-between;padding:0 38px;position:sticky;top:0;z-index:10;backdrop-filter:blur(12px)}.breadcrumb{font-size:12px;color:#8993a4}.breadcrumb span{padding:0 10px;color:#c1c8d3}.breadcrumb strong{color:#303b50;font-weight:650}.topbar-right{display:flex;align-items:center;gap:9px;color:#8490a2;font-size:11px}.top-avatar{margin-left:14px}.mobile-menu{display:none;background:transparent;border:0;font-size:22px;color:var(--ink)}.content{width:100%;max-width:1440px;padding:35px 38px 40px;margin:0 auto;flex:1}.view{display:none}.view.active{display:block}.page-heading{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-bottom:25px}.eyebrow{color:#7e8ca4;margin-bottom:10px}.page-heading h1{font-size:clamp(25px,3vw,34px);letter-spacing:-1.15px;line-height:1.18;margin:0;font-weight:750}.page-heading h1 em{font-style:normal;color:#617bf2}.subheading{color:#7c879a;margin:10px 0 0;font-size:13px;line-height:1.6}.primary-btn,.secondary-btn{border-radius:9px;padding:11px 15px;display:inline-flex;align-items:center;gap:8px;font-weight:650;font-size:12px;white-space:nowrap;transition:transform .15s,background .15s}.primary-btn{background:#536ff1;color:white;border:1px solid #536ff1;box-shadow:0 5px 13px #536ff122}.primary-btn:hover{background:#405fe8;transform:translateY(-1px)}.primary-btn span{font-size:18px;line-height:12px}.secondary-btn{border:1px solid #e1e6ef;background:white;color:#4f5b70}.secondary-btn:hover{background:#f8f9fc}.notice{display:flex;align-items:flex-start;gap:12px;border:1px solid #dfe7ff;background:#f2f5ff;padding:13px 15px;border-radius:10px;margin-bottom:22px;color:#596c9c}.notice-icon{width:19px;height:19px;border-radius:50%;background:#dfe6ff;display:grid;place-items:center;font-size:11px;font-weight:800;flex-shrink:0}.notice strong{font-size:11px;color:#435a9b}.notice p{font-size:11px;line-height:1.55;margin:4px 0 0;color:#6879a7}.notice-close{margin-left:auto;border:0;background:transparent;color:#8190b6;font-size:20px;line-height:15px}.course-strip{display:flex;align-items:center;justify-content:space-between;gap:20px;background:linear-gradient(110deg,#17233a,#26385a);color:white;border-radius:14px;padding:24px 25px;margin-bottom:18px;box-shadow:var(--shadow)}.section-kicker{font-size:9px;color:#a4b3d3;margin-bottom:9px}.course-strip h2{font-size:19px;letter-spacing:-.45px;margin:0}.course-strip p{font-size:11px;color:#a6b3cc;margin:7px 0 0}.course-strip .secondary-btn{background:#ffffff0c;border-color:#ffffff26;color:#e6ebf5}.stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}.stat-card,.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}.stat-card{padding:17px 18px}.stat-top{display:flex;align-items:center;justify-content:space-between;color:#758197;font-size:11px;font-weight:600}.stat-icon,.quick-icon,.option-icon{width:31px;height:31px;border-radius:9px;display:grid;place-items:center;font-size:17px}.blue{background:var(--blue-soft);color:var(--blue)}.purple{background:var(--purple-soft);color:var(--purple)}.green{background:var(--green-soft);color:var(--green)}.amber{background:var(--amber-soft);color:var(--amber)}.stat-number{font-size:27px;font-weight:760;letter-spacing:-1px;margin:12px 0 5px}.status-number{font-size:19px;letter-spacing:-.4px}.stat-foot{font-size:10px;color:#9aa3b2}.dashboard-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.85fr);gap:18px;margin-bottom:18px}.panel{padding:20px;margin-bottom:18px}.dashboard-grid .panel{margin:0}.panel-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;margin-bottom:17px}.panel-heading h3{font-size:14px;margin:0;letter-spacing:-.25px}.panel-heading p{font-size:10px;color:#929cad;margin:6px 0 0;line-height:1.5}.text-btn{border:0;background:transparent;color:#5d76e9;font-size:11px;font-weight:700;white-space:nowrap}.topic-list{display:grid;gap:17px}.topic-row-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:8px;font-size:11px}.topic-row-head strong{font-weight:650}.topic-count{color:#76839a;font-variant-numeric:tabular-nums}.progress-track{height:6px;background:#eff2f7;border-radius:20px;overflow:hidden}.progress-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,#6c84f8,#8c9eff)}.panel-footnote{border-top:1px solid #edf0f5;margin-top:19px;padding-top:12px;font-size:10px;color:#a0a8b6;line-height:1.5}.quick-panel{display:flex;flex-direction:column}.quick-action{width:100%;display:flex;align-items:center;gap:11px;padding:13px 0;text-align:left;border:0;border-bottom:1px solid #eff1f5;background:transparent}.quick-action:last-child{border-bottom:0}.quick-action>span:nth-child(2){flex:1}.quick-action strong{display:block;font-size:11px;font-weight:700;color:#364156}.quick-action small{display:block;font-size:10px;color:#919bad;margin-top:4px}.quick-icon{flex-shrink:0}.action-arrow{color:#a5adbb;font-size:16px}.quick-action:hover strong{color:#536ff1}.recent-panel{margin-top:0}.empty-state{padding:26px 10px 18px;text-align:center}.empty-illustration{width:44px;height:44px;border-radius:13px;background:#f0f3ff;color:#7c8df3;display:grid;place-items:center;margin:0 auto 12px;font-size:23px}.empty-state strong{font-size:12px}.empty-state p{max-width:380px;margin:7px auto 15px;color:#909bad;font-size:11px;line-height:1.6}.footer{padding:17px 38px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#a0a8b6;font-size:10px}.filter-row{display:flex;gap:12px;margin-bottom:18px}.search-box{display:flex;align-items:center;gap:10px;flex:1;background:white;border:1px solid #e2e7ef;border-radius:9px;padding:0 12px;color:#8a95a7;min-width:0}.search-box input,.analysis-search input{border:0;outline:0;background:transparent;width:100%;height:40px;color:var(--ink);font-size:12px}.filter-row select,.analysis-controls select,.analysis-search input{border:1px solid #e2e7ef;border-radius:9px;background:white;color:#596579;padding:0 12px;min-height:40px;font-size:11px;outline-color:#9eafff}.file-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.file-card{background:white;border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0;box-shadow:var(--shadow)}.file-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.file-icon{width:38px;height:42px;border-radius:8px;display:grid;place-items:center;background:#fff0f0;color:#d66b76;font-size:12px;font-weight:800;border:1px solid #ffe2e5}.file-card h3{font-size:12px;line-height:1.45;overflow-wrap:anywhere;margin:13px 0 6px}.file-meta{font-size:10px;color:#919bad;display:flex;flex-wrap:wrap;gap:7px}.file-kind{font-size:9px;background:#f2f4f8;color:#778297;border-radius:5px;padding:4px 6px}.file-actions{display:flex;gap:7px;margin-top:15px}.small-btn{border:1px solid #e4e8f0;border-radius:7px;background:white;color:#647087;padding:7px 9px;font-size:10px}.small-btn:hover{background:#f6f8fc}.file-empty{grid-column:1/-1;background:white;border:1px dashed #d9dfeb;border-radius:12px;padding:45px 20px;text-align:center;color:#8d98aa}.file-empty strong{display:block;color:#4b576c;margin:10px 0 5px}.file-empty p{font-size:11px;line-height:1.6;margin:0 auto 15px;max-width:350px}.preview-pill{font-size:10px;font-weight:700;padding:7px 10px;border-radius:7px;background:#fff4dc;color:#a97923;white-space:nowrap}.analysis-controls{display:flex;gap:12px;align-items:flex-end;margin-bottom:17px;padding:15px;background:white;border:1px solid var(--line);border-radius:11px}.analysis-controls label{display:grid;gap:7px;min-width:130px}.analysis-controls label>span{font-size:10px;color:#7f8a9d;font-weight:650}.analysis-controls select{min-width:130px}.analysis-search{flex:1}.analysis-search input{width:100%;min-width:0}.analysis-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-bottom:18px}.analysis-summary>div{background:white;border:1px solid var(--line);border-radius:10px;padding:16px}.analysis-summary span{display:block;color:#8a95a7;font-size:10px;margin-bottom:9px}.analysis-summary strong{font-size:19px;letter-spacing:-.5px}.analysis-summary .confidence{font-size:13px;color:#b17d2e}.analysis-topic-list{display:grid;gap:0}.analysis-topic{padding:15px 0;border-top:1px solid #eff1f5}.analysis-topic:first-child{border-top:0;padding-top:0}.analysis-topic-head{display:flex;align-items:center;gap:10px;margin-bottom:9px}.analysis-topic-head strong{font-size:12px}.priority{font-size:9px;border-radius:5px;padding:4px 6px;font-weight:700}.priority.High{background:#e8f7f0;color:#248464}.priority.Medium{background:#fff4dc;color:#a77a28}.priority.Review{background:#f1edff;color:#8064c9}.topic-years{font-size:10px;color:#8994a7;margin-top:8px}.evidence-panel{margin-top:18px}.source-placeholder{display:flex;gap:13px;align-items:flex-start;padding:15px;border:1px dashed #dce2ed;border-radius:9px;background:#fafbfe}.source-placeholder>span{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:#edf1ff;color:#637cf0;font-size:17px}.source-placeholder strong{font-size:11px}.source-placeholder p{font-size:10px;color:#8a95a7;line-height:1.6;margin:6px 0 0}.assistant-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px}.assistant-welcome,.chat-panel{background:white;border:1px solid var(--line);border-radius:13px;min-height:360px}.assistant-welcome{padding:28px}.assistant-orb{width:49px;height:49px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(145deg,#edf0ff,#f3edff);color:#7668df;font-size:25px}.assistant-welcome h2{font-size:23px;letter-spacing:-.7px;margin:20px 0 10px}.assistant-welcome>p{color:#7e899c;font-size:12px;line-height:1.7;max-width:420px}.suggestion-list{display:grid;gap:8px;margin-top:23px}.suggestion{border:1px solid #e7eaf2;background:#fbfcfe;color:#556176;border-radius:8px;text-align:left;padding:11px;font-size:11px}.suggestion:hover{border-color:#c8d1ff;color:#526be5}.chat-panel{display:flex;flex-direction:column}.chat-header{display:flex;align-items:center;gap:8px;border-bottom:1px solid #edf0f5;padding:15px 17px;font-size:11px}.chat-header small{margin-left:auto;color:#9aa3b2;font-size:10px}.chat-status{background:#c6ccd6}.chat-empty{margin:auto;text-align:center;padding:25px}.chat-empty>div{font-size:28px;color:#8d84e7;margin-bottom:12px}.chat-empty strong{font-size:12px}.chat-empty p{font-size:11px;color:#929cad;line-height:1.6;max-width:250px}.chat-form{display:flex;gap:8px;padding:13px;border-top:1px solid #edf0f5}.chat-form input{min-width:0;flex:1;border:1px solid #e7eaf1;background:#f7f8fb;border-radius:8px;padding:11px;font-size:11px}.chat-form button{width:36px;border:0;border-radius:8px;background:#dce2f4;color:white;font-size:19px}.modal-backdrop{display:none;position:fixed;inset:0;background:#1018278c;z-index:50;align-items:center;justify-content:center;padding:18px}.modal-backdrop.open{display:flex}.modal{width:min(100%,440px);background:white;border-radius:16px;padding:28px;position:relative;box-shadow:0 24px 80px #0b142633}.modal-close{position:absolute;right:16px;top:14px;border:0;background:transparent;color:#929cad;font-size:24px}.modal-icon{width:38px;height:38px;display:grid;place-items:center;background:#edf1ff;color:#5c75ee;border-radius:11px;font-size:22px}.modal h2{font-size:21px;letter-spacing:-.5px;margin:16px 0 7px}.modal>p{font-size:12px;color:#8490a2;line-height:1.6;margin:0 0 18px}.upload-options{display:grid;gap:9px}.upload-option{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:1px solid #e6eaf1;background:#fff;border-radius:10px;padding:13px}.upload-option:hover{border-color:#b9c6ff;background:#fbfcff}.upload-option>span:nth-child(2){flex:1}.upload-option strong{display:block;font-size:12px}.upload-option small{display:block;color:#929cad;font-size:10px;margin-top:4px}.modal .modal-note{font-size:10px;color:#a0a8b6;margin:15px 0 0}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);background:#182239;color:white;border-radius:9px;padding:12px 16px;font-size:11px;box-shadow:0 8px 30px #10182730;opacity:0;pointer-events:none;transition:all .2s;z-index:70;max-width:calc(100vw - 30px)}.toast.show{opacity:1;transform:translate(-50%,0)}.mobile-overlay{display:none}
+@media(min-width:1500px){.content{padding-top:42px}.stats-grid{gap:17px}.stat-card{padding:20px}}
+@media(max-width:1120px){.sidebar{width:220px}.main-area{margin-left:220px}.content{padding:28px 25px}.topbar{padding:0 25px}.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dashboard-grid{grid-template-columns:1fr}.file-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.sidebar{transform:translateX(-100%);transition:transform .22s ease;width:260px;box-shadow:15px 0 40px #0b13241a}.sidebar.open{transform:translateX(0)}.main-area{margin-left:0}.topbar{height:59px;padding:0 16px;gap:12px}.mobile-menu{display:block}.breadcrumb{flex:1}.topbar-status{display:none}.top-avatar{margin-left:4px}.content{padding:25px 16px 30px}.page-heading{align-items:flex-start;flex-direction:column;gap:15px;margin-bottom:20px}.page-heading .primary-btn{align-self:flex-start}.page-heading h1{font-size:27px}.subheading{font-size:12px}.course-strip{align-items:flex-start;flex-direction:column;padding:20px}.course-strip h2{font-size:17px}.stats-grid{gap:10px}.stat-card{padding:14px}.stat-number{font-size:24px}.stat-foot{line-height:1.45}.dashboard-grid{gap:13px}.panel{padding:16px}.panel-heading{gap:8px}.panel-heading h3{font-size:13px}.panel-heading p{max-width:250px}.filter-row{flex-wrap:wrap}.search-box{flex-basis:100%}.filter-row select{flex:1}.file-grid{grid-template-columns:1fr}.analysis-controls{display:grid;grid-template-columns:1fr 1fr;gap:11px}.analysis-controls label,.analysis-controls select{min-width:0;width:100%}.analysis-search{grid-column:1/-1}.analysis-summary{grid-template-columns:1fr;gap:9px}.analysis-summary>div{padding:13px}.analysis-summary strong{font-size:17px}.assistant-layout{grid-template-columns:1fr}.assistant-welcome,.chat-panel{min-height:auto}.assistant-welcome{padding:22px}.chat-panel{min-height:330px}.footer{padding:15px 16px;gap:15px;line-height:1.5}.footer span:last-child{text-align:right}.notice{padding:12px}.modal{padding:23px}.text-btn{font-size:10px}}
+@media(max-width:390px){.stats-grid{grid-template-columns:1fr 1fr}.stat-card{padding:12px}.stat-top{font-size:10px}.stat-icon{width:27px;height:27px}.stat-number{font-size:22px}.stat-foot{font-size:9px}.course-strip .secondary-btn{white-space:normal}.analysis-controls{grid-template-columns:1fr}.analysis-search{grid-column:auto}.breadcrumb{font-size:11px}.breadcrumb span{padding:0 5px}}
+
+
+  .chat-messages{height:274px;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:#fff}
+  .chat-messages .chat-empty{margin:auto;text-align:center;max-width:300px;color:#71809a}
+  .chat-messages .chat-empty>div{font-size:26px;color:#7766ff;margin-bottom:8px}
+  .chat-messages .chat-empty strong{display:block;color:#17233b;margin-bottom:7px}
+  .chat-message{max-width:92%;padding:11px 13px;border-radius:12px;font-size:12px;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere}
+  .chat-message.user{align-self:flex-end;background:#e9edff;color:#1b2b55;border-bottom-right-radius:4px}
+  .chat-message.assistant{align-self:flex-start;background:#f3f5fa;color:#24334d;border-bottom-left-radius:4px}
+  .chat-message .chat-source{display:block;margin-top:8px;padding-top:7px;border-top:1px solid #dce2ed;color:#586987;font-size:11px}
+  .chat-form input:disabled,.chat-form button:disabled{opacity:.55;cursor:not-allowed}
+
+</style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="Academic Intelligence home">
+        <span class="brand-mark">AI</span>
+        <span class="brand-copy"><strong>Academic</strong><small>INTELLIGENCE</small></span>
+      </a>
+      <div id="supabaseAuthPanel" style="margin:0 8px 20px;padding:12px;border:1px solid #ffffff20;border-radius:10px;background:#ffffff08;color:#e9edf6">
+        <div style="font-size:11px;font-weight:700;margin-bottom:8px">SUPABASE CONNECTION</div>
+        <div id="sbAuthStatus" style="font-size:11px;color:#aab5c8;margin-bottom:10px">Not configured</div>
+        <button id="sbSignInBtn" type="button" style="border:0;border-radius:7px;background:#8094ff;color:#101827;padding:8px 10px;font-weight:700;width:100%;margin-bottom:6px">Admin sign in</button>
+        <button id="sbSignOutBtn" type="button" style="display:none;border:1px solid #ffffff30;border-radius:7px;background:transparent;color:#e9edf6;padding:7px 10px;width:100%">Sign out</button>
+      </div>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-view="overview"><span class="nav-icon">▦</span><span>Overview</span></button>
+        <button class="nav-item" data-view="materials"><span class="nav-icon">▤</span><span>Materials</span></button>
+        <button class="nav-item" data-view="questions"><span class="nav-icon">☷</span><span>Question Papers</span></button>
+        <button class="nav-item" data-view="analysis"><span class="nav-icon">⌁</span><span>Topic Analysis</span></button>
+        <button class="nav-item" data-view="assistant"><span class="nav-icon">✧</span><span>AI Study Assistant</span><span class="soon">Preview</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="storage-card">
+          <div class="storage-icon">◇</div>
+          <strong>Your study workspace</strong>
+          <p>Organize course files and find the topics that matter.</p>
+          <span class="demo-label"><i></i> Local demo mode</span>
+        </div>
+        <div class="user-row"><div class="avatar">ST</div><div><strong>Student workspace</strong><small>Personal library</small></div><span class="more">•••</span></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumbCurrent">Overview</strong></div>
+        <div class="topbar-right"><span class="status-dot"></span><span class="topbar-status">Prototype workspace</span><button class="avatar top-avatar" aria-label="Student profile">ST</button></div>
+      </header>
+
+      <div class="content">
+        <section class="view active" id="view-overview">
+          <div class="page-heading">
+            <div><div class="eyebrow">YOUR PERSONAL STUDY WORKSPACE</div><h1>Course intelligence, <em>in one place.</em></h1><p class="subheading">Organize your materials, explore past papers, and build an evidence-based study plan.</p></div>
+            <button class="primary-btn" id="uploadTopBtn"><span>＋</span> Add documents</button>
+          </div>
+          <div class="notice"><span class="notice-icon">i</span><div><strong>Prototype mode</strong><p>This first version runs in your browser. The sample analytics are illustrative; uploaded files are not yet sent to an AI or saved to a database.</p></div><button class="notice-close" id="dismissNotice" aria-label="Dismiss notice">×</button></div>
+          <div class="course-strip">
+            <div><div class="section-kicker">CURRENT COURSE</div><h2 id="currentCourseTitle">Production Planning &amp; Control</h2><p>IPE · Semester 5 · Demo course</p></div>
+            <button class="secondary-btn" id="changeCourseBtn">Change course <span>⌄</span></button>
+          </div>
+          <div class="stats-grid">
+            <article class="stat-card"><div class="stat-top"><span>Materials</span><span class="stat-icon blue">▤</span></div><div class="stat-number" id="materialCount">0</div><div class="stat-foot">Files added in this session</div></article>
+            <article class="stat-card"><div class="stat-top"><span>Question papers</span><span class="stat-icon purple">☷</span></div><div class="stat-number" id="paperCount">0</div><div class="stat-foot">Past papers added in this session</div></article>
+            <article class="stat-card"><div class="stat-top"><span>Topics tracked</span><span class="stat-icon green">⌁</span></div><div class="stat-number">24</div><div class="stat-foot">Illustrative sample data</div></article>
+            <article class="stat-card"><div class="stat-top"><span>Analysis status</span><span class="stat-icon amber">◷</span></div><div class="stat-number status-number">Not run</div><div class="stat-foot">Connect processing to analyze PDFs</div></article>
+          </div>
+          <div class="dashboard-grid">
+            <section class="panel topic-panel">
+              <div class="panel-heading"><div><h3>Frequently examined topics</h3><p>Example data to preview the analysis interface</p></div><button class="text-btn" data-goto="analysis">View analysis ↗</button></div>
+              <div class="topic-list" id="overviewTopics"></div>
+              <div class="panel-footnote">Sample figures only — not verified against your actual exam papers.</div>
+            </section>
+            <section class="panel quick-panel">
+              <div class="panel-heading"><div><h3>Quick actions</h3><p>Start building your course library</p></div></div>
+              <button class="quick-action" id="quickMaterial"><span class="quick-icon blue">＋</span><span><strong>Upload course materials</strong><small>Lecture notes, slides, textbook PDFs</small></span><span class="action-arrow">↗</span></button>
+              <button class="quick-action" id="quickPaper"><span class="quick-icon purple">＋</span><span><strong>Add previous questions</strong><small>Semester exams, CTs and other papers</small></span><span class="action-arrow">↗</span></button>
+              <button class="quick-action" data-goto="analysis"><span class="quick-icon green">⌁</span><span><strong>Explore topic analysis</strong><small>Preview frequency and year filters</small></span><span class="action-arrow">↗</span></button>
+            </section>
+          </div>
+          <section class="panel recent-panel">
+            <div class="panel-heading"><div><h3>Recently added documents</h3><p>Saved documents from your Supabase database</p></div><button class="text-btn" data-goto="materials">Open library ↗</button></div>
+            <div id="recentFiles" class="empty-state"><div class="empty-illustration">▤</div><strong>Your library starts here</strong><p>Upload a PDF to save it in your private Supabase library.</p><button class="secondary-btn" id="emptyUploadBtn">Choose files</button></div>
+          </section>
+        </section>
+
+        <section class="view" id="view-materials">
+          <div class="page-heading"><div><div class="eyebrow">COURSE LIBRARY</div><h1>Materials</h1><p class="subheading">Keep lecture notes and reference PDFs together by course.</p></div><button class="primary-btn" id="materialUploadBtn">＋ Add materials</button></div>
+          <div class="filter-row"><label class="search-box"><span>⌕</span><input id="materialSearch" type="search" placeholder="Search material names…"></label><select id="materialSort" aria-label="Sort materials"><option value="newest">Recently added</option><option value="name">Name A–Z</option><option value="size">File size</option></select></div>
+          <div id="materialsList" class="file-grid"></div>
+        </section>
+
+        <section class="view" id="view-questions">
+          <div class="page-heading"><div><div class="eyebrow">EXAM ARCHIVE</div><h1>Previous question papers</h1><p class="subheading">Collect exam papers by year and exam type for later analysis.</p></div><button class="primary-btn" id="questionUploadBtn">＋ Add question papers</button></div>
+          <div class="notice"><span class="notice-icon">i</span><div><strong>Keep source details accurate</strong><p>When analysis is connected, exam year, paper type and original PDF page will be used to verify topic frequency.</p></div></div>
+          <div class="filter-row"><label class="search-box"><span>⌕</span><input id="questionSearch" type="search" placeholder="Search paper names…"></label><select id="yearFilter" aria-label="Filter by year"><option value="all">All years</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option></select></div>
+          <div id="questionsList" class="file-grid"></div>
+        </section>
+
+        <section class="view" id="view-analysis">
+          <div class="page-heading"><div><div class="eyebrow">EVIDENCE-BASED REVISION</div><h1>Topic analysis</h1><p class="subheading">Analyze extracted text from your saved question papers and match topics to material pages.</p></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="secondary-btn" id="runAnalysisBtn">Analyze extracted text</button><button class="primary-btn" id="runGeminiBtn">Analyze with Gemini AI</button></div></div>
+          <div class="analysis-controls"><label><span>Exam year</span><select id="analysisYear"><option value="all">All years</option></select></label><label><span>Priority</span><select id="priorityFilter"><option value="all">All priorities</option><option value="High">High</option><option value="Medium">Medium</option><option value="Review">Review</option></select></label><label class="analysis-search"><span>Find topic</span><input id="topicSearch" type="search" placeholder="e.g. forecasting"></label></div>
+          <div class="analysis-summary"><div><span>Detected topics</span><strong id="topicTotal">—</strong></div><div><span>Most frequent topic</span><strong id="topTopic">—</strong></div><div><span>Analysis status</span><strong class="confidence" id="analysisConfidence">Not run</strong></div></div>
+          <section class="panel"><div class="panel-heading"><div><h3>Topic frequency</h3><p>Counts distinct question papers containing each phrase; this is phrase-based analysis, not semantic AI classification.</p></div></div><div id="analysisTopics" class="analysis-topic-list"><div class="source-placeholder"><span>↗</span><div><strong>Analysis has not run yet</strong><p>Extract text from at least one question paper, then select Analyze extracted text.</p></div></div></div></section>
+          <section class="panel evidence-panel"><div class="panel-heading"><div><h3>Source mapping</h3><p>Question-paper pages and matching material pages from your extracted text.</p></div></div><div id="analysisEvidence" class="source-placeholder"><span>↗</span><div><strong>Evidence will appear after analysis</strong><p>Each detected phrase can show the paper, exam year, page number, and matching material page.</p></div></div></section>
+        </section>
+
+        <section class="view" id="view-assistant">
+          <div class="page-heading"><div><div class="eyebrow">YOUR STUDY COMPANION</div><h1>AI Study Assistant</h1><p class="subheading">Ask questions grounded in your saved, text-extracted course materials and past papers.</p></div><span class="preview-pill" id="assistantStatusPill">Secure AI</span></div>
+          <div class="assistant-layout"><div class="assistant-welcome"><div class="assistant-orb">✧</div><h2>Study with your own sources.</h2><p>The planned assistant will answer using your uploaded materials and past papers, with clickable evidence instead of unsupported guesses.</p><div class="suggestion-list"><button class="suggestion" data-prompt="Which topics appeared most often in previous exams?">Which topics appeared most often?</button><button class="suggestion" data-prompt="Find the material pages related to a question topic.">Find material pages for a topic</button><button class="suggestion" data-prompt="Create a revision plan based on verified past-paper patterns.">Build an evidence-based revision plan</button></div></div><div class="chat-panel"><div class="chat-header"><span class="chat-status"></span><strong>Course assistant</strong><small id="chatConnectionStatus">Sign in to use</small></div><div class="chat-messages" id="chatMessages" aria-live="polite"><div class="chat-empty"><div>✧</div><strong>Ask your study assistant</strong><p>Answers use extracted pages from your saved PDFs. Add documents and click “Extract text” first for source-grounded answers.</p></div></div><form id="chatForm" class="chat-form"><input id="chatInput" placeholder="Ask about your course…" maxlength="1200" autocomplete="off"><button type="submit" aria-label="Send question">↑</button></form></div></div>
+        </section>
+      </div>
+      <footer class="footer"><span>Academic Intelligence</span><span>Built for focused, evidence-based study</span></footer>
+    </main>
+  </div>
+
+  <input type="file" id="fileInput" accept=".pdf,application/pdf" multiple hidden>
+  <div class="modal-backdrop" id="uploadModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+      <div class="modal-icon">＋</div><h2 id="modalTitle">Add documents</h2><p>Choose what you want to add to your course workspace.</p>
+      <div class="upload-options"><button class="upload-option" data-kind="material"><span class="option-icon blue">▤</span><span><strong>Course materials</strong><small>Lecture notes, slides, textbooks</small></span><span>→</span></button><button class="upload-option" data-kind="question"><span class="option-icon purple">☷</span><span><strong>Previous question papers</strong><small>Semester exams, CTs and other papers</small></span><span>→</span></button></div>
+      <p class="modal-note">PDFs upload to your private Supabase bucket after your admin signs in. Keep your bucket private.</p>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script src="./supabase-config.js"></script>
+<script>
+(() => {
+  "use strict";
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+  const state = { files: [], uploadKind: "material", activeView: "overview", analysis: [], evidence: [], analysisRan: false };
+  const sb = window.academicSupabase || null;
+  let currentSession = null;
+  async function refreshSupabaseSession() {
+    const status = $("#sbAuthStatus");
+    const signIn = $("#sbSignInBtn");
+    const signOut = $("#sbSignOutBtn");
+    if (!sb) { status.textContent = "Add your URL and publishable key in supabase-config.js"; signIn.disabled = true; signIn.style.opacity = ".55"; return; }
+    const { data, error } = await sb.auth.getSession();
+    if (error) { status.textContent = "Connection error: " + error.message; return; }
+    currentSession = data.session;
+    status.textContent = currentSession ? "Signed in: " + currentSession.user.email : "Connected · Admin sign-in required";
+    const chatStatus = $("#chatConnectionStatus"); if (chatStatus) chatStatus.textContent = currentSession ? "Ready · uses saved PDFs" : "Sign in to use";
+    const chatInput = $("#chatInput"); if (chatInput) chatInput.placeholder = currentSession ? "Ask about your course…" : "Sign in to ask questions…";
+    signIn.style.display = currentSession ? "none" : "block";
+    signOut.style.display = currentSession ? "block" : "none";
+    try { await loadSavedDocuments(); } catch (loadError) { toast(loadError.message); }
+  }
+  async function signInAdmin() {
+    if (!sb) { toast("Configure supabase-config.js first."); return; }
+    const email = window.prompt("Admin email address:");
+    if (!email) return;
+    const password = window.prompt("Admin password (input is not masked):");
+    if (!password) return;
+    const { error } = await sb.auth.signInWithPassword({ email: email.trim(), password });
+    if (error) { toast("Sign-in failed: " + error.message); return; }
+    await refreshSupabaseSession();
+    toast("Signed in. Storage permissions will be enforced by Supabase RLS.");
+  }
+  async function signOutAdmin() {
+    if (!sb) return;
+    const { error } = await sb.auth.signOut();
+    if (error) toast("Sign-out failed: " + error.message);
+    else { await refreshSupabaseSession(); toast("Signed out."); }
+  }
+  async function uploadPrivatePdf(file, kind) {
+    if (!sb) throw new Error("Supabase is not configured. Edit supabase-config.js first.");
+    const { data: sessionData, error: sessionError } = await sb.auth.getSession();
+    if (sessionError) throw sessionError;
+    if (!sessionData.session) throw new Error("Please sign in as the registered admin before uploading.");
+    if (file.size > 20 * 1024 * 1024) throw new Error("PDF exceeds the configured 20 MB limit.");
+    const safeName = file.name.normalize("NFKC").replace(/[^a-zA-Z0-9._-]/g, "_");
+    const path = `${sessionData.session.user.id}/${kind}/${Date.now()}-${safeName}`;
+    const { data, error } = await sb.storage.from("academic-documents").upload(path, file, { contentType: "application/pdf", upsert: false });
+    if (error) throw error;
+    return { path: data.path, bucket: "academic-documents" };
+  }
+  async function getOrCreateLibraryCourse() {
+    const { data: found, error: findError } = await sb.from("courses").select("id").eq("course_code", "LIBRARY").limit(1).maybeSingle();
+    if (findError) throw new Error("Could not look up the library course: " + findError.message);
+    if (found) return found.id;
+    const { data, error } = await sb.from("courses").insert({ course_code: "LIBRARY", course_name: "General Library", semester: 1 }).select("id").single();
+    if (error) throw new Error("Could not create the default library course (semester is set to 1 because this column is an integer): " + error.message);
+    return data.id;
+  }
+  async function saveDocumentMetadata(file, kind, storagePath) {
+    const courseId = await getOrCreateLibraryCourse();
+    if (kind === "material") {
+      const { data, error } = await sb.from("materials").insert({ course_id: courseId, title: file.name, file_path: storagePath, material_type: "PDF" }).select("id,title,file_path,created_at").single();
+      if (error) throw new Error("PDF uploaded to Storage, but materials metadata save failed: " + error.message);
+      return { id: data.id, table: "materials", created_at: data.created_at };
+    }
+    const year = extractYear(file.name);
+    const { data, error } = await sb.from("question_papers").insert({ course_id: courseId, title: file.name, exam_year: year, exam_type: "Previous question paper", file_path: storagePath }).select("id,title,file_path,exam_year,created_at").single();
+    if (error) throw new Error("PDF uploaded to Storage, but question-paper metadata save failed: " + error.message);
+    return { id: data.id, table: "question_papers", created_at: data.created_at, year: data.exam_year };
+  }
+  async function loadSavedDocuments() {
+    if (!sb) return;
+    const { data: sessionData } = await sb.auth.getSession();
+    if (!sessionData.session) { state.files = []; renderFiles(); updateStats(); return; }
+    const [materialsResult, papersResult] = await Promise.all([
+      sb.from("materials").select("id,title,file_path,created_at,material_type").order("created_at", { ascending: false }),
+      sb.from("question_papers").select("id,title,file_path,created_at,exam_year,exam_type").order("created_at", { ascending: false })
+    ]);
+    if (materialsResult.error) throw new Error("Could not load materials: " + materialsResult.error.message);
+    if (papersResult.error) throw new Error("Could not load question papers: " + papersResult.error.message);
+    state.files = [
+      ...(materialsResult.data || []).map(row => ({ id: row.id, dbId: row.id, table: "materials", name: row.title, size: null, type: "material", date: row.created_at ? new Date(row.created_at) : new Date(), path: row.file_path, year: null, persisted: true })),
+      ...(papersResult.data || []).map(row => ({ id: row.id, dbId: row.id, table: "question_papers", name: row.title, size: null, type: "question", date: row.created_at ? new Date(row.created_at) : new Date(), path: row.file_path, year: row.exam_year || extractYear(row.title), persisted: true }))
+    ].sort((a,b) => b.date - a.date);
+    renderFiles(); updateStats();
+  }
+  $("#sbSignInBtn").addEventListener("click", signInAdmin);
+  $("#sbSignOutBtn").addEventListener("click", signOutAdmin);
+  if (sb) sb.auth.onAuthStateChange(() => { setTimeout(refreshSupabaseSession, 0); });
+
+  const stopWords = new Set("about above after again against all also am an and any are as at be because been before being below between both but by can could did do does doing down during each few for from further had has have having he her here hers herself him himself his how i if in into is it its itself just me more most my myself no nor not of off on once only or other our ours ourselves out over own same she should so some such than that the their theirs them themselves then there these they this those through to too under until up very was we were what when where which while who whom why will with would you your yours a the page pages question questions paper papers exam examination year semester course material chapter unit topic following according discuss explain define describe write short long note notes".split(/\s+/));
+  const escapeHTML = value => String(value).replace(/[&<>"']/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
+  let toastTimer;
+  function toast(message) {
+    const el = $("#toast");
+    el.textContent = message;
+    el.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove("show"), 3000);
+  }
+  function formatBytes(bytes) {
+    if (!Number.isFinite(bytes) || bytes < 0) return "Unknown size";
+    if (bytes < 1024) return `${bytes} B`;
+    if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+    return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+  }
+  function formatDate(date) {
+    return new Intl.DateTimeFormat(undefined, { year: "numeric", month: "short", day: "numeric" }).format(date);
+  }
+  function switchView(name) {
+    const view = $(`#view-${name}`);
+    if (!view) return;
+    state.activeView = name;
+    $$(".view").forEach(el => el.classList.toggle("active", el === view));
+    $$(".nav-item").forEach(el => el.classList.toggle("active", el.dataset.view === name));
+    const names = { overview: "Overview", materials: "Materials", questions: "Question Papers", analysis: "Topic Analysis", assistant: "AI Study Assistant" };
+    $("#breadcrumbCurrent").textContent = names[name] || "Overview";
+    $("#sidebar").classList.remove("open");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  function openUpload(kind = "material") {
+    state.uploadKind = kind;
+    $("#uploadModal").classList.add("open");
+    $("#uploadModal").setAttribute("aria-hidden", "false");
+  }
+  function closeUpload() {
+    $("#uploadModal").classList.remove("open");
+    $("#uploadModal").setAttribute("aria-hidden", "true");
+  }
+  function chooseFiles(kind) {
+    state.uploadKind = kind;
+    closeUpload();
+    const input = $("#fileInput");
+    input.value = "";
+    input.click();
+  }
+  async function addFiles(fileList, kind) {
+    const files = [...fileList];
+    if (!files.length) return;
+    const invalid = files.filter(file => file.type !== "application/pdf" && !file.name.toLowerCase().endsWith(".pdf"));
+    const valid = files.filter(file => !invalid.includes(file));
+    if (invalid.length) toast(`${invalid.length} non-PDF file(s) skipped. Please choose PDF documents.`);
+    if (!valid.length) return;
+    if (!sb) { toast("Supabase is not configured. Add credentials to supabase-config.js."); return; }
+    const { data: sessionData, error: sessionError } = await sb.auth.getSession();
+    if (sessionError || !sessionData.session) { toast("Please sign in as the registered admin before uploading PDFs."); return; }
+    let uploaded = 0;
+    for (const file of valid) {
+      try {
+        const stored = await uploadPrivatePdf(file, kind);
+        let metadata;
+        try { metadata = await saveDocumentMetadata(file, kind, stored.path); }
+        catch (metadataError) {
+          toast(metadataError.message + " The PDF remains in Storage; do not upload it again until this is resolved.");
+          continue;
+        }
+        state.files.unshift({ id: metadata.id, dbId: metadata.id, table: metadata.table, name: file.name, size: file.size, type: kind, date: metadata.created_at ? new Date(metadata.created_at) : new Date(), file, path: stored.path, year: metadata.year || extractYear(file.name), persisted: true });
+        uploaded++;
+      } catch (error) { toast(`Upload failed for ${file.name}: ${error.message}`); }
+    }
+    renderFiles(); updateStats();
+    if (uploaded) toast(`${uploaded} PDF(s) uploaded and saved to the database.`);
+  }
+  function extractYear(name) {
+    const match = name.match(/\b(20\d{2})\b/);
+    return match ? Number(match[1]) : null;
+  }
+  function updateStats() {
+    $("#materialCount").textContent = state.files.filter(f => f.type === "material").length;
+    $("#paperCount").textContent = state.files.filter(f => f.type === "question").length;
+  }
+  function fileCard(file) {
+    const kind = file.type === "material" ? "Course material" : "Question paper";
+    const year = file.type === "question" && file.year ? ` · ${file.year}` : "";
+    return `<article class="file-card">
+      <div class="file-card-top"><div class="file-icon">PDF</div><span class="file-kind">${kind}</span></div>
+      <h3 title="${escapeHTML(file.name)}">${escapeHTML(file.name)}</h3>
+      <div class="file-meta"><span>${formatBytes(file.size)}</span><span>·</span><span>${formatDate(file.date)}${year}</span></div>
+      <div class="file-actions"><button class="small-btn" data-action="open" data-id="${file.id}">Open PDF</button><button class="small-btn" data-action="extract" data-id="${file.id}">Extract text</button><button class="small-btn" data-action="remove" data-id="${file.id}">Remove</button></div>
+    </article>`;
+  }
+  function emptyHTML(title, message, buttonText, action) {
+    return `<div class="file-empty"><div class="empty-illustration">▤</div><strong>${title}</strong><p>${message}</p><button class="secondary-btn" data-action="${action}">${buttonText}</button></div>`;
+  }
+  function renderFiles() {
+    const materialQuery = ($("#materialSearch")?.value || "").trim().toLowerCase();
+    const questionQuery = ($("#questionSearch")?.value || "").trim().toLowerCase();
+    const yearFilter = $("#yearFilter")?.value || "all";
+    let materials = state.files.filter(f => f.type === "material" && f.name.toLowerCase().includes(materialQuery));
+    const sort = $("#materialSort")?.value || "newest";
+    if (sort === "name") materials.sort((a, b) => a.name.localeCompare(b.name));
+    else if (sort === "size") materials.sort((a, b) => b.size - a.size);
+    else materials.sort((a, b) => b.date - a.date);
+    let questions = state.files.filter(f => f.type === "question" && f.name.toLowerCase().includes(questionQuery));
+    if (yearFilter !== "all") questions = questions.filter(f => f.year === Number(yearFilter));
+    $("#materialsList").innerHTML = materials.length ? materials.map(fileCard).join("") : emptyHTML("No materials found", materialQuery ? "Try another search term or clear your search." : "Add lecture notes, textbook chapters, or slides in PDF format.", "Add materials", "upload-material");
+    $("#questionsList").innerHTML = questions.length ? questions.map(fileCard).join("") : emptyHTML("No question papers found", questionQuery || yearFilter !== "all" ? "Try changing your search or year filter." : "Add previous semester questions, CT papers, or other exam PDFs.", "Add question papers", "upload-question");
+    const recent = [...state.files].sort((a, b) => b.date - a.date).slice(0, 4);
+    $("#recentFiles").innerHTML = recent.length ? `<div class="file-grid">${recent.map(fileCard).join("")}</div>` : `<div class="empty-state"><div class="empty-illustration">▤</div><strong>Your library starts here</strong><p>Upload a PDF to save it in your private Supabase library.</p><button class="secondary-btn" id="emptyUploadBtn">Choose files</button></div>`;
+    if ($("#emptyUploadBtn")) $("#emptyUploadBtn").addEventListener("click", () => openUpload());
+  }
+  function renderOverviewTopics() {
+    const top = state.analysis.slice(0, 4);
+    if (!top.length) {
+      $("#overviewTopics").innerHTML = `<div class="empty-state"><strong>No verified topic analysis yet</strong><p>Extract text from question papers, then run Analyze extracted text.</p><button class="secondary-btn" data-goto="analysis">Open Topic Analysis</button></div>`;
+      return;
+    }
+    $("#overviewTopics").innerHTML = top.map(topic => `<div><div class="topic-row-head"><strong>${escapeHTML(topic.name)}</strong><span class="topic-count">${topic.paperCount} paper(s)</span></div><div class="progress-track"><div class="progress-fill" style="width:${Math.max(4, topic.paperCount / Math.max(1, top[0].paperCount) * 100)}%"></div></div></div>`).join("");
+  }
+  function renderAnalysis() {
+    const year = $("#analysisYear").value;
+    const priority = $("#priorityFilter").value;
+    const query = $("#topicSearch").value.trim().toLowerCase();
+    const list = state.analysis.filter(t => (year === "all" || t.years.includes(Number(year))) && (priority === "all" || t.priority === priority) && t.name.toLowerCase().includes(query));
+    $("#topicTotal").textContent = state.analysisRan ? String(list.length) : "—";
+    $("#topTopic").textContent = list[0]?.name || "—";
+    $("#analysisConfidence").textContent = state.analysisRan ? (list.length ? "Text-based" : "No matches") : "Not run";
+    $("#analysisTopics").innerHTML = list.length ? list.map(t => `<div class="analysis-topic"><div class="analysis-topic-head"><strong>${escapeHTML(t.name)}</strong><span class="priority ${t.priority}">${t.priority}</span><span class="topic-count" style="margin-left:auto">${t.paperCount} paper(s)</span></div><div class="progress-track"><div class="progress-fill" style="width:${Math.max(4,t.paperCount / Math.max(1,list[0].paperCount) * 100)}%"></div></div><div class="topic-years">Years: ${t.years.join(", ") || "Year unknown"} · ${t.occurrences} page occurrence(s)</div></div>`).join("") : `<div class="file-empty"><strong>${state.analysisRan ? "No topics match these filters" : "Run analysis to see real results"}</strong><p>${state.analysisRan ? "Try changing the year or search filter." : "Extract text from question papers and click Analyze extracted text."}</p></div>`;
+    const evidence = state.evidence.filter(e => year === "all" || e.year === Number(year)).slice(0, 80);
+    $("#analysisEvidence").innerHTML = evidence.length ? `<div style="display:grid;gap:10px;width:100%">${evidence.map(e => `<div style="border:1px solid #e7ebf2;border-radius:8px;padding:12px;background:#fff"><strong>${escapeHTML(e.topic)}</strong><p style="margin:6px 0;color:#68758b;font-size:11px">Question paper: ${escapeHTML(e.paper)} · Year: ${e.year || "Unknown"} · Page ${e.questionPage}</p><p style="margin:0;color:#68758b;font-size:11px">Matching material: ${e.material ? escapeHTML(e.material) + " · Page " + e.materialPage : "No matching phrase found in extracted materials"}</p></div>`).join("")}</div>` : `<div class="source-placeholder"><span>↗</span><div><strong>No source matches yet</strong><p>Extract text from question papers and materials. Source matches use literal phrase overlap and should be checked against the original PDF.</p></div></div>`;
+  }
+  async function runRealAnalysis() {
+    if (!sb) throw new Error("Supabase is not configured.");
+    const { data: sessionData, error: sessionError } = await sb.auth.getSession();
+    if (sessionError || !sessionData.session) throw new Error("Sign in as admin before running analysis.");
+    const papers = state.files.filter(f => f.type === "question" && f.persisted);
+    const materials = state.files.filter(f => f.type === "material" && f.persisted);
+    if (!papers.length) throw new Error("Upload and save at least one question paper first.");
+    const loadPages = async (file) => {
+      const fk = file.table === "materials" ? "material_id" : "question_paper_id";
+      const { data, error } = await sb.from("document_pages").select("page_number,extracted_text").eq(fk, file.dbId || file.id).order("page_number", { ascending: true });
+      if (error) throw new Error(`Could not read extracted pages for ${file.name}: ${error.message}`);
+      return (data || []).filter(p => (p.extracted_text || "").trim());
+    };
+    const paperPages = [];
+    for (const paper of papers) {
+      const pages = await loadPages(paper);
+      const year = Number(paper.year) || extractYear(paper.name) || null;
+      pages.forEach(p => paperPages.push({ paper, year, page: Number(p.page_number), text: p.extracted_text }));
+    }
+    if (!paperPages.length) throw new Error("No extracted question-paper text found. Use Extract text on a question paper first.");
+    const materialPages = [];
+    for (const material of materials) {
+      const pages = await loadPages(material);
+      pages.forEach(p => materialPages.push({ material, page: Number(p.page_number), text: p.extracted_text }));
+    }
+    const phraseStats = new Map();
+    const evidence = [];
+    for (const pp of paperPages) {
+      const words = (pp.text.toLowerCase().match(/[a-z][a-z0-9-]{2,}/g) || []).filter(w => !stopWords.has(w) && !/^\d+$/.test(w));
+      const phrases = new Set();
+      for (let n = 2; n <= 4; n++) {
+        for (let i = 0; i <= words.length - n; i++) {
+          const phraseWords = words.slice(i, i+n);
+          if (phraseWords.some(w => stopWords.has(w))) continue;
+          const phrase = phraseWords.join(" ");
+          if (phrase.length < 8 || phrase.length > 48) continue;
+          phrases.add(phrase);
+        }
+      }
+      for (const phrase of phrases) {
+        if (!phraseStats.has(phrase)) phraseStats.set(phrase, { name: phrase.replace(/\b\w/g, c => c.toUpperCase()), papers: new Set(), years: new Set(), occurrences: 0, pages: [] });
+        const stat = phraseStats.get(phrase);
+        stat.papers.add(pp.paper.id); if (pp.year) stat.years.add(pp.year); stat.occurrences++; stat.pages.push({paper:pp.paper.name,year:pp.year,page:pp.page});
+      }
+    }
+    const sorted = [...phraseStats.entries()].filter(([phrase, st]) => st.papers.size >= 1 && phrase.split(" ").length >= 2).map(([phrase, st]) => ({ phrase, name:st.name, paperCount:st.papers.size, years:[...st.years].sort((a,b)=>a-b), occurrences:st.occurrences, priority:st.papers.size >= 3 ? "High" : st.papers.size >= 2 ? "Medium" : "Review", pages:st.pages })).sort((a,b)=>b.paperCount-a.paperCount || b.occurrences-a.occurrences || a.name.localeCompare(b.name));
+    // Keep the result readable by suppressing phrases that are contained in a stronger, longer phrase with equal coverage.
+    const chosen = [];
+    for (const topic of sorted) {
+      if (chosen.length >= 100) break;
+      const redundant = chosen.some(existing => existing.paperCount >= topic.paperCount && existing.phrase.includes(topic.phrase) && existing.phrase !== topic.phrase);
+      if (!redundant) chosen.push(topic);
+    }
+    for (const topic of chosen.slice(0, 40)) {
+      for (const occurrence of topic.pages.slice(0, 12)) {
+        const matching = materialPages.find(mp => mp.text.toLowerCase().includes(topic.phrase));
+        evidence.push({ topic:topic.name, paper:occurrence.paper, year:occurrence.year, questionPage:occurrence.page, material:matching?.material.name || "", materialPage:matching?.page || null });
+      }
+    }
+    state.analysis = chosen; state.evidence = evidence; state.analysisRan = true;
+    const yearSelect = $("#analysisYear");
+    const years = [...new Set(paperPages.map(p=>p.year).filter(Boolean))].sort((a,b)=>b-a);
+    yearSelect.innerHTML = `<option value="all">All years</option>` + years.map(y=>`<option value="${y}">${y}</option>`).join("");
+    renderAnalysis(); renderOverviewTopics();
+    toast(`Analysis complete: ${chosen.length} repeated phrases from ${papers.length} question paper(s). Verify matches against the original PDFs.`);
+  }
+  async function runGeminiAnalysis() {
+    if (!sb) throw new Error("Supabase is not configured.");
+    const { data: sessionData, error: sessionError } = await sb.auth.getSession();
+    if (sessionError || !sessionData.session) throw new Error("Sign in as admin before using Gemini analysis.");
+    const papers = state.files.filter(f => f.type === "question" && f.persisted);
+    const materials = state.files.filter(f => f.type === "material" && f.persisted);
+    if (!papers.length) throw new Error("Save at least one question paper first.");
+    const loadPages = async (file) => {
+      const fk = file.table === "materials" ? "material_id" : "question_paper_id";
+      const { data, error } = await sb.from("document_pages").select("page_number,extracted_text").eq(fk, file.dbId || file.id).order("page_number", { ascending: true });
+      if (error) throw new Error(`Could not read pages for ${file.name}: ${error.message}`);
+      return (data || []).filter(p => (p.extracted_text || "").trim());
+    };
+    const questionPages = [];
+    for (const paper of papers) {
+      const pages = await loadPages(paper);
+      const year = Number(paper.year) || extractYear(paper.name) || null;
+      for (const p of pages) questionPages.push({ paper: paper.name, year, page: Number(p.page_number), text: p.extracted_text });
+    }
+    const materialPages = [];
+    for (const material of materials) {
+      const pages = await loadPages(material);
+      for (const p of pages) materialPages.push({ material: material.name, page: Number(p.page_number), text: p.extracted_text });
+    }
+    if (!questionPages.length) throw new Error("No extracted question-paper text found. Click Extract text on your PDFs first.");
+    // Bound payload size to avoid unexpectedly large requests and free-tier quota waste.
+    const body = { questionPages: questionPages.map(p => ({...p, text:p.text.slice(0,12000)})).slice(0,100), materialPages: materialPages.map(p => ({...p, text:p.text.slice(0,8000)})).slice(0,150) };
+    const { data, error } = await sb.functions.invoke("gemini-topic-analysis", { body });
+    if (error) throw new Error(error.message || "Gemini Edge Function request failed. Check deployment and secrets.");
+    if (!data || !Array.isArray(data.topics)) throw new Error(data?.error || "Gemini returned an unexpected response.");
+    state.analysis = data.topics.map(t => ({ name:String(t.name || "Untitled topic"), paperCount:Number(t.paperCount)||0, years:Array.isArray(t.years)?t.years.map(Number).filter(Boolean):[], occurrences:Number(t.occurrences)||0, priority:["High","Medium","Review"].includes(t.priority)?t.priority:"Review", phrase:String(t.name||"") }));
+    state.evidence = Array.isArray(data.evidence) ? data.evidence.map(e => ({ topic:String(e.topic||""), paper:String(e.paper||""), year:Number(e.year)||null, questionPage:Number(e.questionPage)||null, material:String(e.material||""), materialPage:Number(e.materialPage)||null })) : [];
+    state.analysisRan = true;
+    const years = [...new Set(questionPages.map(p=>p.year).filter(Boolean))].sort((a,b)=>b-a);
+    $("#analysisYear").innerHTML = `<option value="all">All years</option>` + years.map(y=>`<option value="${y}">${y}</option>`).join("");
+    renderAnalysis(); renderOverviewTopics();
+    toast(`Gemini analysis complete: ${state.analysis.length} topics returned. Verify evidence against the original PDFs.`);
+  }
+  async function extractAndSaveText(file) {
+    if (!sb || !file.path || !file.persisted) throw new Error("This document must be saved in Supabase before text extraction.");
+    if (!window.pdfjsLib) throw new Error("PDF text library failed to load. Check internet connection and reload.");
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+    const { data: signed, error: signedError } = await sb.storage.from("academic-documents").createSignedUrl(file.path, 120);
+    if (signedError) throw signedError;
+    const pdf = await pdfjsLib.getDocument(signed.signedUrl).promise;
+    const pages = [];
+    let ocrCount = 0;
+    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+      toast(`Extracting text: page ${pageNum} of ${pdf.numPages}…`);
+      const page = await pdf.getPage(pageNum);
+      const textContent = await page.getTextContent();
+      let text = textContent.items.map(item => item.str).join(" ").replace(/\s+/g, " ").trim();
+      if (text.length < 25 && window.Tesseract) {
+        const viewport = page.getViewport({ scale: 1.5 });
+        const canvas = document.createElement("canvas");
+        canvas.width = Math.ceil(viewport.width); canvas.height = Math.ceil(viewport.height);
+        const context = canvas.getContext("2d");
+        await page.render({ canvasContext: context, viewport }).promise;
+        const result = await Tesseract.recognize(canvas, "eng", { logger: () => {} });
+        text = (result.data.text || "").replace(/\s+/g, " ").trim();
+        if (text) ocrCount++;
+        canvas.width = 1; canvas.height = 1;
+      }
+      pages.push({ page_number: pageNum, extracted_text: text });
+    }
+    const sourceField = file.table === "materials" ? "material_id" : "question_paper_id";
+    const sourceId = file.dbId || file.id;
+    const { error: deleteError } = await sb.from("document_pages").delete().eq(sourceField, sourceId);
+    if (deleteError) throw new Error("Text extracted, but existing page text could not be replaced: " + deleteError.message);
+    const rows = pages.map(page => ({ [sourceField]: sourceId, page_number: page.page_number, extracted_text: page.extracted_text }));
+    for (let i = 0; i < rows.length; i += 50) {
+      const { error } = await sb.from("document_pages").insert(rows.slice(i, i + 50));
+      if (error) throw new Error("Could not save extracted text to document_pages: " + error.message);
+    }
+    const nonEmpty = pages.filter(page => page.extracted_text.length > 0).length;
+    toast(`Text saved for ${pages.length} page(s). ${nonEmpty} page(s) contain text; OCR used on ${ocrCount} scanned page(s).`);
+  }
+  async function handleFileAction(event) {
+    const button = event.target.closest("[data-action]");
+    if (!button) return;
+    const action = button.dataset.action;
+    if (action === "upload-material") return chooseFiles("material");
+    if (action === "upload-question") return chooseFiles("question");
+    const file = state.files.find(f => f.id === button.dataset.id);
+    if (!file) return;
+    if (action === "extract") {
+      button.disabled = true; button.textContent = "Working…";
+      try { await extractAndSaveText(file); } catch (error) { toast("Text extraction failed: " + error.message); }
+      finally { button.disabled = false; button.textContent = "Extract text"; }
+      return;
+    }
+    if (action === "remove") {
+      if (file.persisted && sb) {
+        const { error: rowError } = await sb.from(file.table).delete().eq("id", file.dbId || file.id);
+        if (rowError) { toast("Could not remove database record: " + rowError.message); return; }
+        if (file.path) {
+          const { error: storageError } = await sb.storage.from("academic-documents").remove([file.path]);
+          if (storageError) { toast("Database record removed, but Storage file could not be removed: " + storageError.message); }
+        }
+      }
+      state.files = state.files.filter(f => f.id !== file.id);
+      renderFiles(); updateStats(); toast("Document removed.");
+    } else if (action === "open") {
+      if (file.path && sb) {
+        const { data: sessionData } = await sb.auth.getSession();
+        if (!sessionData.session) { toast("Sign in to access private PDFs."); return; }
+        const { data, error } = await sb.storage.from("academic-documents").createSignedUrl(file.path, 60);
+        if (error) { toast("Could not open private PDF: " + error.message); return; }
+        window.open(data.signedUrl, "_blank", "noopener,noreferrer");
+      } else {
+        const url = URL.createObjectURL(file.file);
+        const tab = window.open(url, "_blank", "noopener");
+        if (!tab) toast("Your browser blocked the PDF tab. Allow pop-ups for this page.");
+        setTimeout(() => URL.revokeObjectURL(url), 60000);
+      }
+    }
+  }
+
+  function appendChatMessage(role, text, sources = []) {
+    const container = $("#chatMessages");
+    const empty = container.querySelector(".chat-empty");
+    if (empty) empty.remove();
+    const message = document.createElement("div");
+    message.className = `chat-message ${role}`;
+    message.textContent = text;
+    if (sources.length) {
+      const source = document.createElement("span");
+      source.className = "chat-source";
+      source.textContent = "Sources: " + sources.map(s => `${s.document}, page ${s.page}`).join("; ");
+      message.appendChild(source);
+    }
+    container.appendChild(message);
+    container.scrollTop = container.scrollHeight;
+  }
+  async function askStudyAssistant(question) {
+    if (!sb) throw new Error("Supabase is not configured.");
+    const { data: sessionData, error: sessionError } = await sb.auth.getSession();
+    if (sessionError || !sessionData.session) throw new Error("Please sign in with your registered admin account first.");
+    const savedFiles = state.files.filter(f => f.persisted);
+    if (!savedFiles.length) throw new Error("Upload and save at least one PDF first.");
+    const pages = [];
+    for (const file of savedFiles) {
+      const fk = file.table === "materials" ? "material_id" : "question_paper_id";
+      const { data, error } = await sb.from("document_pages").select("page_number,extracted_text").eq(fk, file.dbId || file.id).order("page_number", { ascending: true });
+      if (error) throw new Error(`Could not read extracted text for ${file.name}: ${error.message}`);
+      for (const p of (data || [])) {
+        const text = String(p.extracted_text || "").trim();
+        if (text) pages.push({ document: file.name, kind: file.type === "question" ? "question paper" : "course material", year: file.year || extractYear(file.name) || null, page: Number(p.page_number) || null, text: text.slice(0, 5000) });
+      }
+    }
+    if (!pages.length) throw new Error("No extracted text is available yet. Go to Materials or Question Papers and click Extract text on your PDFs first.");
+    const payload = { question, pages: pages.slice(0, 60) };
+    const { data, error } = await sb.functions.invoke("gemini-study-assistant", { body: payload });
+    if (error) {
+      let detail = error.message || "Could not contact the study assistant function.";
+      try {
+        const response = error.context;
+        if (response && typeof response.clone === "function") {
+          const body = await response.clone().json();
+          if (body && typeof body.error === "string") detail = body.error;
+        }
+      } catch (_) { /* Keep the SDK message if the response body is not JSON. */ }
+      throw new Error(detail);
+    }
+    if (!data || typeof data.answer !== "string") throw new Error(data?.error || "Unexpected response from the study assistant.");
+    appendChatMessage("assistant", data.answer, Array.isArray(data.sources) ? data.sources : []);
+  }
+  async function submitChat(question) {
+    const input = $("#chatInput");
+    const send = $("#chatForm button[type=submit]");
+    const clean = String(question || "").trim();
+    if (!clean || send.disabled) return;
+    appendChatMessage("user", clean);
+    input.value = ""; input.disabled = true; send.disabled = true; send.textContent = "…";
+    try { await askStudyAssistant(clean); }
+    catch (error) { appendChatMessage("assistant", "I couldn't answer that yet: " + (error.message || String(error))); }
+    finally { input.disabled = false; send.disabled = false; send.textContent = "↑"; input.focus(); }
+  }
+
+  $$(".nav-item").forEach(button => button.addEventListener("click", () => switchView(button.dataset.view)));
+  $$("[data-goto]").forEach(button => button.addEventListener("click", () => switchView(button.dataset.goto)));
+  $("#mobileMenu").addEventListener("click", () => $("#sidebar").classList.toggle("open"));
+  $("#uploadTopBtn").addEventListener("click", () => openUpload());
+  $("#quickMaterial").addEventListener("click", () => chooseFiles("material"));
+  $("#quickPaper").addEventListener("click", () => chooseFiles("question"));
+  $("#materialUploadBtn").addEventListener("click", () => chooseFiles("material"));
+  $("#questionUploadBtn").addEventListener("click", () => chooseFiles("question"));
+  $("#emptyUploadBtn")?.addEventListener("click", () => openUpload());
+  $("#changeCourseBtn").addEventListener("click", () => toast("Course management will be added in a later version."));
+  $("#runAnalysisBtn").addEventListener("click", async event => { const btn=event.currentTarget; btn.disabled=true; btn.textContent="Analyzing…"; try { await runRealAnalysis(); } catch (error) { toast("Analysis failed: " + error.message); } finally { btn.disabled=false; btn.textContent="Analyze extracted text"; } });
+  $("#runGeminiBtn").addEventListener("click", async event => { const btn=event.currentTarget; btn.disabled=true; btn.textContent="Gemini analyzing…"; try { await runGeminiAnalysis(); } catch (error) { toast("Gemini analysis failed: " + error.message); } finally { btn.disabled=false; btn.textContent="Analyze with Gemini AI"; } });
+  $("#dismissNotice").addEventListener("click", () => $(".notice").remove());
+  $("#modalClose").addEventListener("click", closeUpload);
+  $("#uploadModal").addEventListener("click", event => { if (event.target === $("#uploadModal")) closeUpload(); });
+  $$(".upload-option").forEach(button => button.addEventListener("click", () => chooseFiles(button.dataset.kind)));
+  $("#fileInput").addEventListener("change", event => addFiles(event.target.files, state.uploadKind));
+  ["#materialsList", "#questionsList", "#recentFiles"].forEach(selector => $(selector).addEventListener("click", handleFileAction));
+  $("#materialSearch").addEventListener("input", renderFiles);
+  $("#materialSort").addEventListener("change", renderFiles);
+  $("#questionSearch").addEventListener("input", renderFiles);
+  $("#yearFilter").addEventListener("change", renderFiles);
+  ["#analysisYear", "#priorityFilter", "#topicSearch"].forEach(selector => $(selector).addEventListener(selector === "#topicSearch" ? "input" : "change", renderAnalysis));
+  $$(".suggestion").forEach(button => button.addEventListener("click", () => { switchView("assistant"); submitChat(button.dataset.prompt); }));
+  $("#chatForm").addEventListener("submit", event => { event.preventDefault(); submitChat($("#chatInput").value); });
+  document.addEventListener("keydown", event => { if (event.key === "Escape") closeUpload(); });
+  refreshSupabaseSession();
+  renderOverviewTopics();
+  renderFiles();
+  renderAnalysis();
+  updateStats();
+})();
+</script>
+</body>
+</html>
